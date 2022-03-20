@@ -20,7 +20,8 @@ jobs:
       - name: 'Checkout the repository'
         uses: actions/checkout@v2
         
-      - name: 'Runing tests with maven in Browserstack'
+      - name: 'Runing tests with maven in Browserstack in Windows with Chrome'
         run: mvn test -Dviewmode="web_chrome"
         
-        
+      - name: 'Runing tests with maven in Browserstack in Android with Chrome'
+        run: mvn test -Dviewmode="mobile"
