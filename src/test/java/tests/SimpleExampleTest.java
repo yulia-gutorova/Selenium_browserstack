@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,8 +27,10 @@ public class SimpleExampleTest {
     public static final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-    public static RemoteWebDriver driver;
+    //public static RemoteWebDriver driver;
+
     String view = "";
+
 
     String url = "https://www.icabanken.se/lana/privatlan/hur-mycket-far-jag-lana/";
 
@@ -67,6 +70,8 @@ public class SimpleExampleTest {
         }
 
         WebDriver driver = new RemoteWebDriver(new URL(BS_URL), caps);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+
 
         driver.get(url);
 
@@ -83,6 +88,15 @@ public class SimpleExampleTest {
 
         String currentURL = driver.getCurrentUrl();
         Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
+
+        if (url.equalsIgnoreCase(currentURL))
+        {
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"URL is right!\"}}");
+        }
+        else {
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"URL is not right!\"}}");
+        }
+
 
         driver.quit();
     }
