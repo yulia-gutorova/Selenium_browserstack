@@ -1,5 +1,6 @@
 package tests;
 
+import elementLocators.Locators;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
@@ -27,10 +28,11 @@ public class SimpleExampleTest {
     public static final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-    //public static RemoteWebDriver driver;
+    public static RemoteWebDriver driver;
 
     String view = "";
 
+    Locators locators = new Locators(driver);
 
     String url = "https://www.icabanken.se/lana/privatlan/hur-mycket-far-jag-lana/";
 
@@ -76,13 +78,13 @@ public class SimpleExampleTest {
         driver.get(url);
 
         Actions actions = new Actions(driver);
-        WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
-        actions.moveToElement(cookiesButton);
+        //WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
+        actions.moveToElement(locators.cookiesButton);
 
         Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(cookiesButton));
-        cookiesButton.click();
+        wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
+        locators.cookiesButton.click();
 
         Thread.sleep(3000);
 
