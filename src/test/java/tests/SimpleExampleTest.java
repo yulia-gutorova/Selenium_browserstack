@@ -124,9 +124,9 @@ public class SimpleExampleTest {
 
         driver.get(url);*/
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+       // WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement cookies= driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
-        wait.until(ExpectedConditions.visibilityOf(cookies));
+       // wait.until(ExpectedConditions.visibilityOf(cookies));
 
         actions.moveToElement(cookies);
         Thread.sleep(3000);
