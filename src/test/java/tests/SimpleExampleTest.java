@@ -124,14 +124,13 @@ public class SimpleExampleTest {
 
         driver.get(url);*/
 
-        WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
-        actions.moveToElement(cookiesButton);
-
-        Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(cookiesButton));
-        cookiesButton.click();
+        WebElement cookies= driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
+        wait.until(ExpectedConditions.visibilityOf(cookies));
 
+        actions.moveToElement(cookies);
+        Thread.sleep(3000);
+        cookies.click();
         Thread.sleep(3000);
 
         String currentURL = driver.getCurrentUrl();
