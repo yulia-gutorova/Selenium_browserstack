@@ -56,15 +56,14 @@ public class SimpleExampleTest {
 
                 break;
         }
-
         driver = new RemoteWebDriver(new URL(BS_URL), caps);
-
     }
 
     @AfterAll
     public static void tearDown()
     {
 
+        driver.quit();
     }
 
 
@@ -133,7 +132,7 @@ public class SimpleExampleTest {
         }
 
 
-        driver.quit();
+        //driver.quit();
     }
 
 }
