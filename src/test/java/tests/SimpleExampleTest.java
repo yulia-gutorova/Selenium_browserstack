@@ -78,7 +78,7 @@ public class SimpleExampleTest {
      * AfterAll() method executes before all methods
      *---------------------------------------------------------------------*/
     @AfterAll
-    public  void tearDown() throws IOException {
+    public static void tearDown() throws IOException {
 
         driver.quit();
     }
