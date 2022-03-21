@@ -80,7 +80,7 @@ public class SimpleExampleTest {
     @AfterAll
     public static void tearDown() throws IOException {
 
-        driver.quit();
+        //driver.quit();
     }
 
 
@@ -124,14 +124,13 @@ public class SimpleExampleTest {
 
         driver.get(url);*/
 
-        Actions actions = new Actions(driver);
-        //WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
-        actions.moveToElement(locators.cookiesButton);
+        WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
+        actions.moveToElement(cookiesButton);
 
         Thread.sleep(3000);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
-        locators.cookiesButton.click();
+        wait.until(ExpectedConditions.visibilityOf(cookiesButton));
+        cookiesButton.click();
 
         Thread.sleep(3000);
 
@@ -146,7 +145,7 @@ public class SimpleExampleTest {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"URL is not right!\"}}");
         }
 
-        //driver.quit();
+        driver.quit();
     }
 
 }
