@@ -60,7 +60,7 @@ public class SimpleExampleTest {
                 caps.setCapability("browserstack.selenium_version", "3.14.0");
                 break;
 
-            case "mobile_chrome":
+            case "mobile":
                 caps.setCapability("os_version", "10.0");
                 caps.setCapability("device", "Samsung Galaxy S20");
                 caps.setCapability("real_mobile", "true");
