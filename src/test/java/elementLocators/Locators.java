@@ -9,9 +9,9 @@ import tests.SimpleExampleTest;
 
 public class Locators {
 
-    public static RemoteWebDriver driver;
+    public static WebDriver driver;
 
-    public Locators(RemoteWebDriver driver)
+    public Locators(WebDriver driver)
     {
         this.driver = driver;
         PageFactory.initElements(driver, this);

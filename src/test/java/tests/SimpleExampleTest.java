@@ -28,11 +28,11 @@ public class SimpleExampleTest {
     public static final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-    public static RemoteWebDriver driver;
+    //public static RemoteWebDriver driver;
 
     String view = "";
 
-    Locators locators = new Locators(driver);
+
 
     String url = "https://www.icabanken.se/lana/privatlan/hur-mycket-far-jag-lana/";
 
@@ -74,6 +74,7 @@ public class SimpleExampleTest {
         WebDriver driver = new RemoteWebDriver(new URL(BS_URL), caps);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
 
+        Locators locators = new Locators(driver);
 
         driver.get(url);
 
