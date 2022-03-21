@@ -128,7 +128,7 @@ public class SimpleExampleTest {
         WebElement cookies= driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
        // wait.until(ExpectedConditions.visibilityOf(cookies));
 
-        actions.moveToElement(cookies);
+        //actions.moveToElement(cookies);
         Thread.sleep(3000);
         cookies.click();
         Thread.sleep(3000);
