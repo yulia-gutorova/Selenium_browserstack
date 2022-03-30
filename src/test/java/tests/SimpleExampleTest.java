@@ -9,17 +9,23 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import util.ElementsInteractingMethods;
+
+import static util.ElementsInteractingMethods.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SimpleExampleTest {
 
     public static final String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
     public static final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-    static WebDriver driver;
+    public static WebDriver driver;
+
     Locators locators = new Locators(driver);
 
     static String view = "";
@@ -43,7 +49,6 @@ public class SimpleExampleTest {
                 caps.setCapability("browser_version", "98.0");
                 caps.setCapability("browserstack.local", "false");
                 caps.setCapability("browserstack.selenium_version", "3.14.0");
-
                 break;
 
             case "mobile":
@@ -53,16 +58,15 @@ public class SimpleExampleTest {
                 caps.setCapability("real_mobile", "true");
                 caps.setCapability("browserstack.local", "false");
                 caps.setCapability("browser", "chrome");
-
                 break;
         }
         driver = new RemoteWebDriver(new URL(BS_URL), caps);
+
     }
 
     @AfterAll
     public static void tearDown()
     {
-
         driver.quit();
     }
 
@@ -108,13 +112,14 @@ public class SimpleExampleTest {
 
         driver.get(url);
 
-        Actions actions = new Actions(driver);
+        //Actions actions = new Actions(driver);
         //WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
-        actions.moveToElement(locators.cookiesButton);
+        //actions.moveToElement(locators.cookiesButton);
 
-        Thread.sleep(3000);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
+        //Thread.sleep(3000);
+       // WebDriverWait wait = new WebDriverWait(driver, 10);
+       // wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
+        waitUntilVisibility(driver, locators.cookiesButton);
         locators.cookiesButton.click();
 
         Thread.sleep(3000);
@@ -130,9 +135,12 @@ public class SimpleExampleTest {
         else {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"URL is not right!\"}}");
         }
-
-
-        //driver.quit();
     }
+
+
+
+
+
+
 
 }
