@@ -26,6 +26,7 @@ public class SimpleExampleTest {
     public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static WebDriver driver;
+    JavascriptExecutor jse = (JavascriptExecutor)driver;
 
     Locators locators = new Locators(driver);
 
@@ -130,7 +131,7 @@ public class SimpleExampleTest {
 
         Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
 
-        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        //JavascriptExecutor jse = (JavascriptExecutor)driver;
         if (url.equalsIgnoreCase(currentURL))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"URL is right!\"}}");
@@ -159,6 +160,23 @@ public class SimpleExampleTest {
         {
             Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
         }
+
+
+       // JavascriptExecutor jse = (JavascriptExecutor)driver;
+        if (isElementVisible(driver, locators.logoICABanken))
+        {
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
+        }
+        else {
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Logo is not visible!\"}}");
+        }
+
+
+
+
+
+
+
     }
 
 
