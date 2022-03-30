@@ -150,19 +150,7 @@ public class SimpleExampleTest {
     public void logoAndHeaderElementsAreVisible()  {
 
         Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
-        Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
 
-        if (view.equals("web_chrome"))
-        {
-            Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
-        }
-        else
-        {
-            Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
-        }
-
-
-       // JavascriptExecutor jse = (JavascriptExecutor)driver;
         if (isElementVisible(driver, locators.logoICABanken))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
@@ -170,6 +158,48 @@ public class SimpleExampleTest {
         else {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Logo is not visible!\"}}");
         }
+
+
+        Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
+
+        if (isElementVisible(driver, locators.logInButton))
+        {
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
+        }
+        else {
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Logo is not visible!\"}}");
+        }
+
+
+        if (view.equals("web_chrome"))
+        {
+            Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
+
+            if (isElementVisible(driver, locators.searchHeaderButton))
+            {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
+            }
+            else {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Logo is not visible!\"}}");
+            }
+        }
+        else
+        {
+            Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
+            if (isElementVisible(driver, locators.gamburgerMenuButton))
+            {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
+            }
+            else {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Logo is not visible!\"}}");
+            }
+        }
+
+
+       // JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+
+
 
 
 
