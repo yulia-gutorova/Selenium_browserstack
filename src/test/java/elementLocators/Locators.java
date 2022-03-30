@@ -20,4 +20,16 @@ public class Locators {
     @FindBy(xpath=("//button[contains(text(), 'cookies')]"))
     public WebElement cookiesButton;
 
+    @FindBy(xpath = "//img[@alt='Logo']")
+    public WebElement logoICABanken;
+
+    @FindBy(id = "searchHeaderButton")
+    public WebElement searchHeaderButton;
+
+    @FindBy(xpath = "//button[text()='Logga in']")
+    public WebElement logInButton;
+
+    @FindBy(xpath = "//a[@class = 'header_action__2xCD3 header_actionHamburger__2PXSx header_borderLeft__22RVi']")
+    public WebElement gamburgerMenuButton;
+
 }

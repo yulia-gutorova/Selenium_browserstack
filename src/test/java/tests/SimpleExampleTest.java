@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import util.ElementsInteractingMethods;
 
 import static util.ElementsInteractingMethods.*;
+import static util.CommonMethods.*;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -120,11 +121,13 @@ public class SimpleExampleTest {
        // WebDriverWait wait = new WebDriverWait(driver, 10);
        // wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
         waitUntilVisibility(driver, locators.cookiesButton);
-        locators.cookiesButton.click();
+        //locators.cookiesButton.click();
 
+        clickOnButton(driver, locators.cookiesButton);
         Thread.sleep(3000);
 
-        String currentURL = driver.getCurrentUrl();
+        String currentURL = getCurrentURL(driver);
+
         Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
 
         JavascriptExecutor jse = (JavascriptExecutor)driver;
@@ -135,12 +138,37 @@ public class SimpleExampleTest {
         else {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"URL is not right!\"}}");
         }
+
     }
 
 
+    @DisplayName("2. Logo and header elements are visible")
+    //@Disabled
+    @Order(2)
+    @Test
+    public void logoAndHeaderElementsAreVisible()  {
+
+        Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
+        Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
+
+        if (view.equals("web_chrome"))
+        {
+            Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
+        }
+        else
+        {
+            Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
+        }
+    }
 
 
+    @DisplayName("3. Header elements are enable")
+    //@Disabled
+    @Order(3)
+    @Test
+    public void headerElementsAreEnabled()  {
 
-
-
+        Assertions.assertTrue(isElementEnable(driver, locators.searchHeaderButton));
+        Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
+    }
 }

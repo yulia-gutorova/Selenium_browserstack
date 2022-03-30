@@ -32,4 +32,25 @@ public class ElementsInteractingMethods {
         element.click();
     }
 
+    /*---------------------------------------------------------------------
+     * Method isElementVisible() to verify that element is displayed
+     *---------------------------------------------------------------------*/
+    public static boolean isElementVisible(WebDriver driver, WebElement element)
+    {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        waitUntilVisibility(driver, element);
+        return element.isDisplayed();
+    }
+
+    /*---------------------------------------------------------------------
+     * Method isElementEnable() to verify that element is enabled
+     *---------------------------------------------------------------------*/
+    public static boolean isElementEnable(WebDriver driver, WebElement element)
+    {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element);
+        return element.isEnabled();
+    }
+
 }

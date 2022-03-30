@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods {
 
-
-
+    public static String getCurrentURL(WebDriver driver)
+    {
+        return driver.getCurrentUrl();
+    }
 }
