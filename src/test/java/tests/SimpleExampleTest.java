@@ -53,6 +53,16 @@ public class SimpleExampleTest {
                 caps.setCapability("browserstack.selenium_version", "3.14.0");
                 break;
 
+            case "web-firefox":
+
+                caps.setCapability("os", "Windows");
+                caps.setCapability("os_version", "10");
+                caps.setCapability("browser", "Firefox");
+                caps.setCapability("browser_version", "latest");
+                caps.setCapability("browserstack.local", "false");
+                caps.setCapability("browserstack.selenium_version", "3.14.0");
+
+
             case "mobile":
 
                 caps.setCapability("os_version", "10.0");
