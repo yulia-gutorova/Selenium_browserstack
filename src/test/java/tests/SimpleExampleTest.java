@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.ElementsInteractingMethods;
+import util.SetUp;
 
 import static util.ElementsInteractingMethods.*;
 import static util.CommonMethods.*;
@@ -19,22 +20,19 @@ import java.net.URL;
 
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class SimpleExampleTest {
+public class SimpleExampleTest extends SetUp {
 
-    public static final String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
-    public static final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
-    public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+   // public static final String USERNAME = System.getenv("BROWSERSTACK_USERNAME");
+   // public static final String AUTOMATE_KEY = System.getenv("BROWSERSTACK_ACCESS_KEY");
+   // public static final String BS_URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+    // static String view = "";
+   // public static WebDriver driver;
 
-    public static WebDriver driver;
     JavascriptExecutor jse = (JavascriptExecutor)driver;
-
     Locators locators = new Locators(driver);
-
-    static String view = "";
-
     String url = "https://www.icabanken.se/lana/privatlan/hur-mycket-far-jag-lana/";
 
-    @BeforeAll
+/*    @BeforeAll
     public static void setUpp () throws InterruptedException, MalformedURLException
     {
         //mvn test -Dviewmode="web_chrome"
@@ -73,9 +71,11 @@ public class SimpleExampleTest {
                 caps.setCapability("browser", "chrome");
                 break;
         }
+
+
         driver = new RemoteWebDriver(new URL(BS_URL), caps);
 
-    }
+    }*/
 
     @AfterAll
     public static void tearDown()
