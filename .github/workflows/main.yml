@@ -27,4 +27,7 @@ jobs:
         run: mvn test -Dviewmode="web-firefox"
         
       - name: 'Runing tests with maven in Browserstack in Android with Chrome'
-        run: mvn test -Dviewmode="mobile"
+        run: mvn test -Dviewmode="mobile_samsung"
+
+      - name: 'Runing tests with maven in Browserstack in iPhone with Chrome'
+        run: mvn test -Dviewmode="mobile_iphone"

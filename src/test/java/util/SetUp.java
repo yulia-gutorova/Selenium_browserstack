@@ -49,7 +49,7 @@ public class SetUp  {
                 break;
 
 
-            case "mobile":
+            case "mobile_samsung":
 
                 caps.setCapability("os_version", "10.0");
                 caps.setCapability("device", "Samsung Galaxy S20");
@@ -57,6 +57,16 @@ public class SetUp  {
                 caps.setCapability("browserstack.local", "false");
                 caps.setCapability("browser", "chrome");
                 break;
+
+            case "mobile_iphone":
+
+                caps.setCapability("os_version", "15.3");
+                caps.setCapability("device", "iPhone 13 Pro");
+                caps.setCapability("real_mobile", "true");
+                caps.setCapability("browserstack.local", "false");
+                caps.setCapability("browser", "chrome");
+                break;
+
         }
 
         driver = new RemoteWebDriver(new URL(BS_URL), caps);
