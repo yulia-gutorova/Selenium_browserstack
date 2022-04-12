@@ -132,6 +132,8 @@ public class SimpleExampleTest extends SetUp {
         //Thread.sleep(3000);
        // WebDriverWait wait = new WebDriverWait(driver, 10);
        // wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
+
+        Thread.sleep(3000);
         waitUntilVisibility(driver, locators.cookiesButton);
         //locators.cookiesButton.click();
 
