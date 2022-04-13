@@ -22,6 +22,7 @@ public class ElementsInteractingMethods {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+
     /*---------------------------------------------------------------------
      * Method clickOnButton() to click on element
      *---------------------------------------------------------------------*/
@@ -29,6 +30,8 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
 
@@ -39,7 +42,8 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        waitUntilVisibility(driver, element);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
     }
 
@@ -50,6 +54,8 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(element));
         return element.isEnabled();
     }
 

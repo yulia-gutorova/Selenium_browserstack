@@ -12,4 +12,9 @@ public class CommonMethods {
         return driver.getCurrentUrl();
     }
 
+    public static void goToPage(WebDriver driver, String url)
+    {
+        driver.get(url);
+    }
+
 }

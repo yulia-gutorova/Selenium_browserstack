@@ -123,7 +123,8 @@ public class SimpleExampleTest extends SetUp {
 
         Locators locators = new Locators(driver);*/
 
-        driver.get(url);
+        //driver.get(url);
+        goToPage(driver, url);
 
         //Actions actions = new Actions(driver);
         //WebElement cookiesButton = driver.findElement(By.xpath("//button[contains(text(), 'cookies')]"));
@@ -133,9 +134,8 @@ public class SimpleExampleTest extends SetUp {
        // WebDriverWait wait = new WebDriverWait(driver, 10);
        // wait.until(ExpectedConditions.visibilityOf(locators.cookiesButton));
 
-        Thread.sleep(3000);
-        waitUntilVisibility(driver, locators.cookiesButton);
-        //locators.cookiesButton.click();
+        //Thread.sleep(3000);
+        //waitUntilVisibility(driver, locators.cookiesButton);
 
         clickOnButton(driver, locators.cookiesButton);
         Thread.sleep(3000);
@@ -143,8 +143,6 @@ public class SimpleExampleTest extends SetUp {
         String currentURL = getCurrentURL(driver);
 
         Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
-
-        //JavascriptExecutor jse = (JavascriptExecutor)driver;
         if (url.equalsIgnoreCase(currentURL))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"URL is right!\"}}");
@@ -152,7 +150,6 @@ public class SimpleExampleTest extends SetUp {
         else {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"URL is not right!\"}}");
         }
-
     }
 
 
@@ -241,7 +238,7 @@ public class SimpleExampleTest extends SetUp {
             }
         }
 
-        if (view.equals("mobile"))
+        if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
             Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
 
