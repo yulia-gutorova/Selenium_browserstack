@@ -1,10 +1,10 @@
 package util;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import tests.SimpleExampleTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -74,6 +74,12 @@ public class SetUp  {
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
-
     }
+
+    @AfterAll
+    public static void tearDown()
+    {
+        driver.quit();
+    }
+
 }
