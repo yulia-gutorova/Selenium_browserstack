@@ -108,7 +108,7 @@ public class SimpleExampleTest extends SetUp {
     //@Disabled
     @Order(5)
     @Test
-    public void hamburgerMenuIsVisible()  {
+    public void hamburgeMobilerMenuIsVisible()  {
 
         if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
@@ -137,12 +137,12 @@ public class SimpleExampleTest extends SetUp {
         if (view.equals("web_chrome") || view.equals("web_firefox")) {
             Assertions.assertTrue(isElementEnable(driver, locators.searchHeaderButton));
 
-            if (isElementEnable(driver, locators.searchHeaderButton)) {
+            if (isElementEnable(driver, locators.searchHeaderButton))
+            {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Search button is enable!\"}}");
             } else {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Search button is not enable!\"}}");
             }
-
         }
     }
 
@@ -162,7 +162,7 @@ public class SimpleExampleTest extends SetUp {
                 }
                 else
                 {
-                    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
+                    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Log in button button is not enable!\"}}");
                 }
             }
         }
@@ -185,7 +185,7 @@ public class SimpleExampleTest extends SetUp {
             }
             else
             {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"LogIn button is not enable!\"}}");
             }
 
         }

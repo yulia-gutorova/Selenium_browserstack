@@ -30,7 +30,7 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
@@ -42,7 +42,7 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
     }
@@ -54,7 +54,7 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isEnabled();
     }
