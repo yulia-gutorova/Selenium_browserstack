@@ -50,16 +50,6 @@ public class SetUp  {
                 caps.setCapability("browserstack.selenium_version", "3.14.0");
                 break;
 
-
-            case "mobile_samsung":
-
-                caps.setCapability("os_version", "10.0");
-                caps.setCapability("device", "Samsung Galaxy S20");
-                caps.setCapability("real_mobile", "true");
-                caps.setCapability("browserstack.local", "false");
-                caps.setCapability("browser", "chrome");
-                break;
-
             case "mobile_iphone":
 
                 caps.setCapability("os_version", "15.3");
@@ -69,6 +59,14 @@ public class SetUp  {
                 caps.setCapability("browser", "chrome");
                 break;
 
+            case "mobile_samsung":
+
+                caps.setCapability("os_version", "10.0");
+                caps.setCapability("device", "Samsung Galaxy S20");
+                caps.setCapability("real_mobile", "true");
+                caps.setCapability("browserstack.local", "false");
+                caps.setCapability("browser", "chrome");
+                break;
         }
 
         driver = new RemoteWebDriver(new URL(BS_URL), caps);
