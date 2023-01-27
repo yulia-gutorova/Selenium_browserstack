@@ -16,7 +16,7 @@ public class Locators {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath=("//button[contains(text(), 'cookies')]"))
+    @FindBy(xpath=("//span[contains(text(), 'alla cookies')]"))
     public WebElement cookiesButton;
 
     @FindBy(xpath = "//img[@alt='Logo']")
