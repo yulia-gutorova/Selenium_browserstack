@@ -44,13 +44,14 @@ public class SimpleExampleTest extends SetUp {
     }
 
 
-    @DisplayName("2. Logo and header elements are visible")
+    @DisplayName("2. Logo is visible")
     //@Disabled
     @Order(2)
     @Test
-    public void logoAndHeaderElementsAreVisible()  {
+    public void logoIsVisible()  {
 
         Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
+
 
         if (isElementVisible(driver, locators.logoICABanken))
         {
@@ -60,6 +61,15 @@ public class SimpleExampleTest extends SetUp {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Logo is not visible!\"}}");
         }
 
+
+    }
+
+
+    @DisplayName("2. Log in button is visible")
+    //@Disabled
+    @Order(3)
+    @Test
+    public void logInElementIsVisible()  {
 
         Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
 
@@ -71,7 +81,13 @@ public class SimpleExampleTest extends SetUp {
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"LogIn button is not visible!\"}}");
         }
+    }
 
+    @DisplayName("2. Header web button is visible")
+    //@Disabled
+    @Order(4)
+    @Test
+    public void searchHeaderButtonIsVisible()  {
 
         if (view.equals("web_chrome") || view.equals("web_firefox"))
         {
@@ -86,6 +102,14 @@ public class SimpleExampleTest extends SetUp {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Header button is not visible!\"}}");
             }
         }
+    }
+
+    @DisplayName("2. Hamburger mobile menu is visible ")
+    //@Disabled
+    @Order(5)
+    @Test
+    public void hamburgerMenuIsVisible()  {
+
         if (view.equals("mobile"))
         {
             Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
@@ -99,51 +123,78 @@ public class SimpleExampleTest extends SetUp {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not visible!\"}}");
             }
         }
-
     }
 
 
-    @DisplayName("3. Header elements are enable")
-    //@Disabled
-    @Order(3)
-    @Test
-    public void headerElementsAreEnabled()  {
 
-        if (view.equals("web_chrome") || view.equals("web_firefox"))
-        {
+
+    @DisplayName("3. Search header web button is enabled")
+    //@Disabled
+    @Order(6)
+    @Test
+    public void searchHeaderWebButtonIsEnabled() {
+
+        if (view.equals("web_chrome") || view.equals("web_firefox")) {
             Assertions.assertTrue(isElementEnable(driver, locators.searchHeaderButton));
 
-            if (isElementEnable(driver, locators.searchHeaderButton))
-            {
+            if (isElementEnable(driver, locators.searchHeaderButton)) {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Search button is enable!\"}}");
-            }
-            else {
+            } else {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
             }
 
-            Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
+        }
+    }
 
-            if (isElementEnable(driver, locators.logInButton))
+    @DisplayName("3. Log in web button is enabled")
+    //@Disabled
+    @Order(7)
+    @Test
+    public void LoginWebButtonIsEnabled() {
+
+            if (view.equals("web_chrome") || view.equals("web_firefox"))
             {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"LogIn button is enable!\"}}");
-            }
-            else {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
+                Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
+
+                if (isElementEnable(driver, locators.logInButton))
+                {
+                    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"LogIn button is enable!\"}}");
+                }
+                else
+                {
+                    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
+                }
             }
         }
+
+    @DisplayName("3. Login mobile button is enabled")
+    //@Disabled
+    @Order(8)
+    @Test
+    public void LoginMobileButtonIsEnabled()
+    {
 
         if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
             Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
 
-        }
-        if (isElementEnable(driver, locators.logInButton))
-        {
-            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"LogIn button is enable!\"}}");
-        }
-        else {
-            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
-        }
 
+            if (isElementEnable(driver, locators.logInButton))
+            {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"LogIn button is enable!\"}}");
+            }
+            else
+            {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not enable!\"}}");
+            }
+
+        }
     }
 }
+
+
+
+
+
+
+
