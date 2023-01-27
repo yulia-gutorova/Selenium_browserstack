@@ -23,7 +23,7 @@ public class SimpleExampleTest extends SetUp {
     String url = "https://www.icabanken.se/lana/privatlan/hur-mycket-far-jag-lana/";
 
 
-    @DisplayName("WebPage url is right")
+    @DisplayName("1. WebPage url is right")
     @Order(1)
     @Test
     public void testPageUrlIsRight() throws InterruptedException, MalformedURLException {
@@ -51,7 +51,7 @@ public class SimpleExampleTest extends SetUp {
     public void logoIsVisible()  {
 
         //Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
-
+        jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Logo is visible\" }}");
         if (!isElementVisible(driver, locators.logoICABanken))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"Logo is not visible!\"}}");
@@ -65,7 +65,7 @@ public class SimpleExampleTest extends SetUp {
     }
 
 
-    @DisplayName("2. Log in button is visible")
+    @DisplayName("3. Log in button is visible")
     //@Disabled
     @Order(3)
     @Test
@@ -73,7 +73,7 @@ public class SimpleExampleTest extends SetUp {
 
        // Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
 
-
+        jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Login element is visible\" }}");
         if (isElementVisible(driver, locators.logInButton))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"LogIn button is visible!\"}}");
@@ -84,16 +84,16 @@ public class SimpleExampleTest extends SetUp {
         }
     }
 
-    @DisplayName("2. Header web button is visible")
+    @DisplayName("2. Search web button is visible")
     //@Disabled
     @Order(4)
     @Test
-    public void searchHeaderButtonIsVisible()  {
+    public void searchWebButtonIsVisible()  {
 
         if (view.equals("web_chrome") || view.equals("web_firefox"))
         {
             //Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
-
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Search web button is visible\" }}");
             if (isElementVisible(driver, locators.searchHeaderButton))
             {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Header button is visible!\"}}");
@@ -105,23 +105,44 @@ public class SimpleExampleTest extends SetUp {
         }
     }
 
+    @DisplayName("2. Search web button is visible")
+    //@Disabled
+    @Order(4)
+    @Test
+    public void searchMobileButtonIsNotVisible()  {
+
+        if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
+        {
+            //Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Search mobile button is not visible\" }}");
+            if (!isElementVisible(driver, locators.searchHeaderButton))
+            {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Search button button is not visible!\"}}");
+            }
+            else
+            {
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"Header button is visible!\"}}");
+            }
+        }
+    }
+
     @DisplayName("2. Hamburger mobile menu is visible ")
     //@Disabled
     @Order(5)
     @Test
-    public void hamburgeMobilerMenuIsVisible()  {
+    public void hamburgerMobileMenuIsVisible()  {
 
         if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
             //Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
-
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Hamburger mobile menu is visible\" }}");
             if (isElementVisible(driver, locators.gamburgerMenuButton))
             {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Gamburger menu button is visible!\"}}");
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Hamburger menu button is visible!\"}}");
             }
             else
             {
-                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Gamburger menu button is not visible!\"}}");
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\":\"failed\", \"reason\": \"Hamburger menu button is not visible!\"}}");
             }
         }
     }
@@ -137,7 +158,7 @@ public class SimpleExampleTest extends SetUp {
 
         if (view.equals("web_chrome") || view.equals("web_firefox")) {
             //Assertions.assertTrue(isElementEnable(driver, locators.searchHeaderButton));
-
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Search button is enabled on webpage\" }}");
             if (isElementEnable(driver, locators.searchHeaderButton))
             {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Search button is enabled!\"}}");
@@ -156,7 +177,7 @@ public class SimpleExampleTest extends SetUp {
             if (view.equals("web_chrome") || view.equals("web_firefox"))
             {
                // Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
-
+                jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Login web button is enabled\" }}");
                 if (isElementEnable(driver, locators.logInButton))
                 {
                     jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"LogIn button is enabled!\"}}");
@@ -179,6 +200,7 @@ public class SimpleExampleTest extends SetUp {
         {
             //Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
 
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionName\", \"arguments\": {\"name\":\"Login mobile button is enabled\" }}");
 
             if (isElementEnable(driver, locators.logInButton))
             {
