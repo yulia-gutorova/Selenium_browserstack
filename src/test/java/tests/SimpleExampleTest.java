@@ -52,12 +52,13 @@ public class SimpleExampleTest extends SetUp {
 
         //Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
 
-        if (isElementVisible(driver, locators.logoICABanken))
+        if (!isElementVisible(driver, locators.logoICABanken))
         {
-            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"Logo is not visible!\"}}");
         }
         else {
-            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"Logo is not visible!\"}}");
+            jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
+
         }
 
 
