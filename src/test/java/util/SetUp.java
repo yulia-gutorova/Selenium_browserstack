@@ -27,6 +27,7 @@ public class SetUp  {
         DesiredCapabilities caps = new DesiredCapabilities();
         view = System.getProperty("viewmode");
 
+
         switch (view)
         {
             case "web_chrome":
