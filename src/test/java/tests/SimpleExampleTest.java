@@ -52,7 +52,6 @@ public class SimpleExampleTest extends SetUp {
 
         Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
 
-
         if (isElementVisible(driver, locators.logoICABanken))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
@@ -72,6 +71,7 @@ public class SimpleExampleTest extends SetUp {
     public void logInElementIsVisible()  {
 
         Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
+
 
         if (isElementVisible(driver, locators.logInButton))
         {
@@ -110,7 +110,7 @@ public class SimpleExampleTest extends SetUp {
     @Test
     public void hamburgerMenuIsVisible()  {
 
-        if (view.equals("mobile"))
+        if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
             Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
 
@@ -128,7 +128,7 @@ public class SimpleExampleTest extends SetUp {
 
 
 
-    @DisplayName("3. Search header web button is enabled")
+    @DisplayName("3. Search header web button is enable")
     //@Disabled
     @Order(6)
     @Test
@@ -146,7 +146,7 @@ public class SimpleExampleTest extends SetUp {
         }
     }
 
-    @DisplayName("3. Log in web button is enabled")
+    @DisplayName("3. Log in web button is enable")
     //@Disabled
     @Order(7)
     @Test
@@ -167,7 +167,7 @@ public class SimpleExampleTest extends SetUp {
             }
         }
 
-    @DisplayName("3. Login mobile button is enabled")
+    @DisplayName("3. Login mobile button is enable")
     //@Disabled
     @Order(8)
     @Test
