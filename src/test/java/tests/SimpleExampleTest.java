@@ -27,6 +27,7 @@ public class SimpleExampleTest extends SetUp {
     public void testPageUrlIsRight() throws InterruptedException, MalformedURLException {
 
         goToPage(driver, url);
+        System.out.println(url);
         clickOnButton(driver, locators.cookiesButton);
         String currentURL = getCurrentURL(driver);
 

@@ -19,9 +19,6 @@ jobs:
 # Perform tests
       - name: 'Checkout the repository'
         uses: actions/checkout@v2
-        
-      - name: 'Runing tests with maven in Browserstack in Windows with Chrome'
-        run: mvn test -Dviewmode="web_chrome"
 
       - name: 'Runing tests with maven in Browserstack in Windows with Firefox'
         run: mvn test -Dviewmode="web-firefox"
@@ -31,3 +28,6 @@ jobs:
 
       - name: 'Runing tests with maven in Browserstack in iPhone with Chrome'
         run: mvn test -Dviewmode="mobile_iphone"
+
+      - name: 'Runing tests with maven in Browserstack in Windows with Chrome'
+        run: mvn test -Dviewmode="web_chrome"
