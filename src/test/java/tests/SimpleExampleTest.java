@@ -32,7 +32,7 @@ public class SimpleExampleTest extends SetUp {
         String currentURL = getCurrentURL(driver);
 
         //--------------------------------------------------------
-        //Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
+        Assertions.assertTrue(url.equalsIgnoreCase(currentURL));
         if (url.equalsIgnoreCase(currentURL))
         {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"URL is right!\"}}");
@@ -49,7 +49,7 @@ public class SimpleExampleTest extends SetUp {
     @Test
     public void logoIsVisible()  {
 
-        //Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
+        Assertions.assertTrue(isElementVisible(driver, locators.logoICABanken));
 
         if (!isElementVisible(driver, locators.logoICABanken))
         {
@@ -67,7 +67,7 @@ public class SimpleExampleTest extends SetUp {
     @Test
     public void logInElementIsVisible()  {
 
-       // Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
+       Assertions.assertTrue(isElementVisible(driver, locators.logInButton));
 
 
         if (isElementVisible(driver, locators.logInButton))
@@ -88,7 +88,7 @@ public class SimpleExampleTest extends SetUp {
 
         if (view.equals("web_chrome") || view.equals("web_firefox"))
         {
-            //Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
+            Assertions.assertTrue(isElementVisible(driver, locators.searchHeaderButton));
 
             if (isElementVisible(driver, locators.searchHeaderButton))
             {
@@ -103,7 +103,7 @@ public class SimpleExampleTest extends SetUp {
 
     @DisplayName("2. Search web button is visible")
     //@Disabled
-    @Order(4)
+    @Order(5)
     @Test
     public void searchMobileButtonIsNotVisible()  {
 
@@ -124,13 +124,13 @@ public class SimpleExampleTest extends SetUp {
 
     @DisplayName("2. Hamburger mobile menu is visible ")
     //@Disabled
-    @Order(5)
+    @Order(6)
     @Test
     public void hamburgerMobileMenuIsVisible()  {
 
         if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
-            //Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
+            Assertions.assertTrue(isElementVisible(driver, locators.gamburgerMenuButton));
 
             if (isElementVisible(driver, locators.gamburgerMenuButton))
             {
@@ -145,12 +145,12 @@ public class SimpleExampleTest extends SetUp {
 
     @DisplayName("3. Search header web button is enable")
     //@Disabled
-    @Order(6)
+    @Order(7)
     @Test
     public void searchHeaderWebButtonIsEnabled() {
 
         if (view.equals("web_chrome") || view.equals("web_firefox")) {
-            //Assertions.assertTrue(isElementEnable(driver, locators.searchHeaderButton));
+            Assertions.assertTrue(isElementEnable(driver, locators.searchHeaderButton));
 
             if (isElementEnable(driver, locators.searchHeaderButton))
             {
@@ -163,13 +163,13 @@ public class SimpleExampleTest extends SetUp {
 
     @DisplayName("3. Log in web button is enable")
     //@Disabled
-    @Order(7)
+    @Order(8)
     @Test
     public void LoginWebButtonIsEnabled() {
 
             if (view.equals("web_chrome") || view.equals("web_firefox"))
             {
-               // Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
+               Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
 
                 if (isElementEnable(driver, locators.logInButton))
                 {
@@ -184,14 +184,14 @@ public class SimpleExampleTest extends SetUp {
 
     @DisplayName("3. Login mobile button is enabled")
     //@Disabled
-    @Order(8)
+    @Order(9)
     @Test
     public void LoginMobileButtonIsEnabled()
     {
 
         if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
-            //Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
+            Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
 
             if (isElementEnable(driver, locators.logInButton))
             {
