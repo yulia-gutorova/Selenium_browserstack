@@ -56,7 +56,6 @@ public class SimpleExampleTest extends SetUp {
         }
         else {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
-
         }
     }
 
@@ -201,7 +200,6 @@ public class SimpleExampleTest extends SetUp {
             {
                 jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"failed\", \"reason\": \"LogIn button is not enabled!\"}}");
             }
-
         }
     }
 }
