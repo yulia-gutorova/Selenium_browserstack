@@ -10,12 +10,10 @@ import static util.CommonMethods.*;
 
 import java.net.MalformedURLException;
 
-import org.openqa.selenium.JavascriptExecutor;
+
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SimpleExampleTest extends SetUp {
-
-
 
     JavascriptExecutor jse = (JavascriptExecutor)driver;
     Locators locators = new Locators(driver);
@@ -60,8 +58,6 @@ public class SimpleExampleTest extends SetUp {
             jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \"passed\", \"reason\": \"Logo is visible!\"}}");
 
         }
-
-
     }
 
 
@@ -147,9 +143,6 @@ public class SimpleExampleTest extends SetUp {
         }
     }
 
-
-
-
     @DisplayName("3. Search header web button is enable")
     //@Disabled
     @Order(6)
@@ -199,8 +192,6 @@ public class SimpleExampleTest extends SetUp {
         if (view.equals("mobile_iphone") || view.equals("mobile_samsung"))
         {
             //Assertions.assertTrue(isElementEnable(driver, locators.logInButton));
-
-
 
             if (isElementEnable(driver, locators.logInButton))
             {
