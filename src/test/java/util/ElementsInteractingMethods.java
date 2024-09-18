@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class ElementsInteractingMethods {
 
@@ -18,7 +19,7 @@ public class ElementsInteractingMethods {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -30,7 +31,7 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
         element.click();
     }
@@ -42,7 +43,7 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isDisplayed();
     }
@@ -54,7 +55,7 @@ public class ElementsInteractingMethods {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(element));
         return element.isEnabled();
     }

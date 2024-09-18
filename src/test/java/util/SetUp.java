@@ -8,7 +8,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import java.time.Duration;
 
 public class SetUp  {
 
@@ -71,7 +72,8 @@ public class SetUp  {
 
         driver = new RemoteWebDriver(new URL(BS_URL), caps);
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+
 
     }
 
